@@ -64,43 +64,76 @@ export const styles = `
         font-weight: 400;
         margin-bottom: 8px;
     }
-.chat-area{
-    
+   .chat-area{
     height:450px;
     overflow-y: auto;
-}
-
-    form {
-        padding: 2rem 1rem 1.5rem;
+    color:white;
     }
 
-    form .form__field {
+     .form__field {
         margin-bottom: 1.5rem;
         display: flex;
         color:white;
         flex-direction: column;
-    
+        margin-left:110px;
         width:250px;
         height: auto;
         background-image: linear-gradient(80deg, #212121, #3b3b3b);
-
         word-wrap: break-word;
         overflow-wrap: break-word;
         letter-spacing:2px;
         padding:12px;
         border-radius:3px;
     }
-    .user-qs{
+    .welcome-message{
+        margin-bottom: 1.5rem;
+        display: flex;
+        color:white;
+        flex-direction: column;
+        margin-left:110px;
+        width:250px;
+        height: auto;
+        background-image: linear-gradient(80deg, #212121, #3b3b3b);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        letter-spacing:2px;
+        padding:12px;
+        border-radius:3px;
+        animation: appearString 4s forwards;
+    }
+    @keyframes appearString {
+        0% {
+            left: -100%;
+            /* Starting position */
+            opacity: 0;
+            /* Starting opacity */
+        }
+    
+        100% {
+            left: 0;
+            /* Ending position (center of the container) */
+            opacity: 1;
+            /* Ending opacity */
+        }
+    }
+    
+    .icon-svg,.user-icon{
+        margin-left: 200px; /* Adjust the margin as needed */
+        width:24px;
+        height:24px;
+        border-radius:10px;
+       
+      }
+     
+    .user-prompt{
         margin-bottom: 1.5rem;
         display: flex;
         color:black;
         flex-direction: column;
-    
+        margin-left:10px;
         width:250px;
         height: auto;
         background: white;
-        margin-left:85px;
-
         word-wrap: break-word;
         overflow-wrap: break-word;
         letter-spacing:2px;
@@ -108,53 +141,18 @@ export const styles = `
         border-radius:3px;
     }
 
-    .form__field label {
-        margin-bottom: 8px;
-        font-size: 14px;
-    }
-
-    .form__field input,
-    .form__field textarea {
-        border: 1px solid #000000ad;
-        border-radius: 3px;
-        padding: 8px 10px;
-        background-color: #fff;
-    }
-
-    .form__field input {
-        height: 48px;
-    }
-
-    .form__field textarea::placeholder {
-        font-family: Helvetica, Arial ,sans-serif;
-    }
-
-    form button {
-        height: 48px;
-        border-radius: 6px;
-        font-size: 18px;
-        background-color: #000;
-        color: #fff;
-        border: 0;
-        width: 100%;
-        cursor: pointer;
-    }
-
-    form button:hover {
-        background-color: rgba(0, 0, 0, 95%);
-    }
     .footer{
         position:relative;
         top:15px;
         
     }
 
-    .send{
-        margin-left:45px;
+    .sendPrompt{
+        margin-left:15px;
         height:37px;
     }
     .send-input{
-        width:220px;
+        width:270px;
         border:none;
         outline:none;
         border-radius:5px;
@@ -163,28 +161,72 @@ export const styles = `
     }
 
     .send-input::placeholder{
-          padding: 5px;
+          padding: 15px;
           color:white;
     }
 
     .send-btn{
         background:#76B947;
         padding:6px;
-        width:75px;
+        width:45px;
         border-radius:5px;
         border:none;
         outline:none;
         color:white;
         cursor:pointer;
+        height:37px;
     }
+    .clear-btn{
+        // background-color:#283046;
+        background:transparent;
+        padding:6px;
+        width:45px;
+        border-radius:5px;
+        border:1px solid #283046;
+        outline:none;
+        color:white;
+        cursor:pointer;
+        height:37px;
+    }
+    .loading-typing{
+        color: #3369f2;
+        font-weight: 50;
+        margin-left:350px;
+    }
+    .loading-typing:after {
+        content: '.';
+        font-size: 32px;
+        font-weight: 500;
+        animation: dots 1s steps(5, end) infinite;
+    }
+      
+      @keyframes dots {
+        0%, 20% {
+          color: rgba(0,0,0,0);
+          text-shadow:
+            .25em 0 0 rgba(0,0,0,0),
+            .5em 0 0 rgba(0,0,0,0);}
+        40% {
+          color: #3369f2;
+          text-shadow:
+            .25em 0 0 rgba(0,0,0,0),
+            .5em 0 0 rgba(0,0,0,0);}
+        60% {
+          text-shadow:
+            .25em 0 0 #3369f2,
+            .5em 0 0 rgba(0,0,0,0);}
+        80%, 100% {
+          text-shadow:
+            .25em 0 0 #3369f2,
+            .5em 0 0 #3369f2;}
+        }
+
+        
+    
 `;
 
 export const MESSAGE_ICON = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#FFFFFF"
-        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
-        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-        <polyline points="22,6 12,13 2,6"></polyline>
-    </svg>
+<i class="fa fa-wechat" style="font-size:30px;color:white"></i>
 `;
 
 export const CLOSE_ICON = `
